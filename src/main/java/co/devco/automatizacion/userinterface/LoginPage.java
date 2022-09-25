@@ -13,7 +13,8 @@ public class LoginPage {
             .containingText("admin");
 
 
-    public static final Target LOG_IN_BUTTON =Target.the("Log in button").located(By.linkText("logIn()"));
+    public static final Target LOG_IN_BUTTON =Target.the("Log in button")
+            .locatedBy("//*[@id='logInModal']//button[2]");
     //campo username
     //campo de password
     //Boton

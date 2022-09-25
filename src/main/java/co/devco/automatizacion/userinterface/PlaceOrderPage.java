@@ -27,7 +27,7 @@ public class PlaceOrderPage {
 
 
     public static final Target PURCHASE_ORDER =Target.the("Purcharse button")
-            .located(By.linkText("purchaseOrder()"));
+            .locatedBy("//*[@id='orderModal']//button[2]");
 
 
 }
