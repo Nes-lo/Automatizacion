@@ -7,8 +7,8 @@ buildscript {
         serenityGradlePluginVersion='2.4.34'
         serenityVersion='3.2.5'
         serenityCucumberVersion='3.2.5'
-
-        junitVersion='5.9.0'
+        junitVersion='4.13.2'
+        //junitVersion='5.9.0'
         slf4jVersion='1.7.36'
         assertjVersion='3.23.1'
 
@@ -42,18 +42,20 @@ dependencies {
     testImplementation "net.serenity-bdd:serenity-junit:$rootProject.ext.serenityVersion"
     testImplementation "net.serenity-bdd:serenity-cucumber:$rootProject.ext.serenityCucumberVersion"
 
-    testImplementation "org.junit.jupiter:junit-jupiter-api:$rootProject.ext.junitVersion"
-    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$rootProject.ext.junitVersion"
+  //  testImplementation "org.junit.jupiter:junit-jupiter-api:$rootProject.ext.junitVersion"
+  //  testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$rootProject.ext.junitVersion"
+
+    testImplementation "junit:junit:$rootProject.ext.junitVersion"
 
     testImplementation "org.slf4j:slf4j-simple:$rootProject.ext.slf4jVersion"
 
     testImplementation "org.assertj:assertj-core:$rootProject.ext.assertjVersion"
 }
 
-test {
+/*test {
     useJUnitPlatform()
 
-}
+}*/
 
 tasks.withType(Test){
     systemProperties = System.properties as Map<String,String>
