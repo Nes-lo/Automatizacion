@@ -8,20 +8,20 @@ import net.thucydides.core.annotations.DefaultUrl;
 import org.openqa.selenium.By;
 
 
+
+
 @DefaultUrl("https://www.demoblaze.com/")
 public class DemoBlazeHomePage extends PageObject {
 
-    public static final Target LOG_IN_MENU =Target.the("Log in menu").located(By.id("login2"));
+    public static final Target BANNER = Target.the("homepage banner").located(By.id("narvbarx"));
+
+    public static final Target CATEGORY_MENU = Target.the("Category of {0}")
+            .locatedBy("//a[@id='itemc'][text()='{0}']");
+    public static final Target PRODUCT = Target.the("Product {0}")
+            .locatedBy("//div[contains(@class,'card')]//a[text()='{0}']");
 
 
-    public static final Target CATEGORIES_MONITORS =Target.the("Monitors")
-            .located(By.linkText("byCat('monitor')"));
 
-
-    public static final Target CART =Target.the("Cart").located(By.id("cartur"));
-
-    public static final Target PLACE_ORDER =Target.the("Place Order")
-            .located(By.className("btn btn-success"));
 
 
 }

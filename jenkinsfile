@@ -1,0 +1,35 @@
+pipeline{
+    agent any
+
+    stages{
+
+    stage('gradlew clean')
+       {
+          steps{
+          bat "gradlew clean"
+           }
+        }
+
+       stage('build'){
+          steps{
+          bat "gradlew build -x test"
+          }
+       }
+
+       stage('test'){
+                 steps{
+                 bat "gradlew test"
+                 }
+         }
+
+
+         stage("Quality Gate") {
+                     steps {
+                         timeout(time: 1, unit: 'HOURS') {
+                             waitForQualityGate abortPipeline: true
+                         }
+                     }
+                 }
+
+    }
+}

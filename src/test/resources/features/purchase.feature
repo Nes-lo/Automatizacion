@@ -5,10 +5,10 @@ Feature: Purchase
 
   Scenario: Purchase products from the shopping cart successfully
     Given Juan Perez is authenticated
-    And add from laptops a MackBook air
-    And add from Monitor an Apple monitor 24
-    When  Juan makes the purchase
-    Then should see the message thank you for your purchase
+    And add from Laptops a MacBook air
+    And add from Monitors an Apple monitor 24
+    When Juan makes the purchase
+    Then should see the message Thank you for your purchase
 
 
 
