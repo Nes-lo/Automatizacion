@@ -6,10 +6,10 @@ public class CartPage {
 
 
 
-   /* public static final Target PLACE_ORDER_BUTTON = Target.the("Place Order button")
-            .locatedBy("//button[text()='Place Order']");*/
+   public static final Target PLACE_ORDER_BUTTON = Target.the("Place Order button")
+            .locatedBy("//button[text()='Place Order']");
 
-    public static final Target PLACE_ORDER_BUTTON = Target.the("Place Order button")
+ /*   public static final Target PLACE_ORDER_BUTTON = Target.the("Place Order button")
             .locatedBy("//button[text()='Place Prueba']");
 
 
