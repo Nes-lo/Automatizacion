@@ -16,11 +16,11 @@ pipeline{
           }
        }
 
-       /*stage('test'){
+       stage('test'){
                  steps{
                  bat "gradlew test"
                  }
-         }*/
+         }
 
          stage('aggregate') {
                      steps {
@@ -41,14 +41,6 @@ pipeline{
                                  ])
                              }
                          }
-
-         stage("Quality Gate") {
-                              steps {
-                                  timeout(time: 1, unit: 'HOURS') {
-                                      waitForQualityGate abortPipeline: true
-                                  }
-                              }
-                          }
 
     }
 }
