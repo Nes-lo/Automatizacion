@@ -16,11 +16,39 @@ pipeline{
           }
        }
 
-       stage('test'){
+       /*stage('test'){
                  steps{
                  bat "gradlew test"
                  }
-         }
+         }*/
+
+         stage('aggregate') {
+                     steps {
+                         bat 'gradlew.bat aggregate'
+                     }
+                 }
+
+                 stage('publish report'){
+                             steps {
+                                 publishHTML([
+                                     allowMissing: false,
+                                     alwaysLinkToLastBuild: true,
+                                     keepAll: true,
+                                     reportDir: 'target/site/serenity',
+                                     reportFiles: 'index.html',
+                                     reportName: 'Serenity-BDD',
+                                     reportTitles: ''
+                                 ])
+                             }
+                         }
+
+         stage("Quality Gate") {
+                              steps {
+                                  timeout(time: 1, unit: 'HOURS') {
+                                      waitForQualityGate abortPipeline: true
+                                  }
+                              }
+                          }
 
     }
 }
