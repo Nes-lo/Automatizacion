@@ -18,7 +18,10 @@ pipeline{
 
        stage('test'){
                  steps{
-                 bat "gradlew test"
+                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                     bat "gradlew test"
+                 }
+
                  }
          }
 
